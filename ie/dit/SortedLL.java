@@ -4,13 +4,12 @@
 class SortedLL
 {
     Node head, z;
-    private long size;
     
 	//Node Structure
     private static class Node{
         int data;
         Node next;
-    }
+    }	
 	
 	//Constructor
     public SortedLL(){
@@ -18,46 +17,14 @@ class SortedLL
         this.z = new Node();
         this.z.next = this.z;
         this.z = this.z.next;
-    }
-    public boolean insert(int x)
-    {
-        Node t = new Node();
-        t.data = x;
-        
-        if(this.z.next == this.z){
-            this.head.data = x;
-            this.head.next = this.z;
-            this.z.next = this.head;
-            
-        } else if(this.head.data >= x){
-            t.next = this.head;
-            this.head = t;
-            this.z.next = t;
-        } else {
-            Node current = new Node();
-
-            for (current = this.head;
-                 current.next != this.z && current.next.data < x;
-                 current = current.next);
-            
-            
-            t.next = current.next;
-            current.next = t;
-        }
-        return true;
+		this.head.next = this.z;
     }
 
-    public void remove(int x) 
-	{
-		
-		return;
-    }
-    
+	//Print Nodes Method
     public void display()
 	{
         Node t = new Node();
-		t = this.z.next;
-		//t = this.head;
+		t = this.head;
         
         System.out.print("\nHead -> ");
         while(t != this.z) {
@@ -65,6 +32,30 @@ class SortedLL
             t = t.next;
         }
         System.out.println("Z\n");
+    }	
+	
+    public void insert(int x)
+    {
+        Node newNode = new Node();
+        newNode.data = x;
+		Node current = new Node();
+		current = this.head;
+        
+        while(current.next != this.z && x > current.next.data)
+		{
+			current = current.next;
+		}
+		
+		newNode.next = current.next;
+		current.next = newNode;
+		
+		return;
+    }
+
+    public void remove(int x) 
+	{
+		
+		return;
     }
     
     public static void main(String[] args)
