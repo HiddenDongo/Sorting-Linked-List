@@ -1,5 +1,8 @@
-// Sorted linked list with a z node
-// Skeleton code
+/*	Sorted Linked List using Sentinel Node
+	Kalyan Kola Cahill - C16357813
+	DT228/2 - 15/02/2018
+*/
+package ie.dit;
 
 class SortedLL
 {
@@ -34,6 +37,7 @@ class SortedLL
         System.out.println("Z\n");
     }	
 	
+	//Linked List Insert Node Method
     public void insert(int x)
     {
         Node newNode = new Node();
@@ -52,12 +56,14 @@ class SortedLL
 		return;
     }
 
+	//Linked List Remove Node Method
     public void remove(int x) 
 	{
 		
 		return;
     }
     
+	//Linked List Main Method
     public static void main(String[] args)
     {
         SortedLL list = new SortedLL();
@@ -65,6 +71,7 @@ class SortedLL
         
         int i, x;
         
+		//Inserting New Nodes and Printing List
         for(i = 1; i <= 10; i++)  
 		{
             x =  (int)(Math.random()*100.0);
