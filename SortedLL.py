@@ -36,7 +36,7 @@ class SortedLL:
 
 		#checks that Linked List is not empty
         if self.isEmpty():
-            print("List is Empty, you dummy!")
+            print("List is Empty")
             return
 
         current = self.head

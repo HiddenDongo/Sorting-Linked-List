@@ -4,9 +4,9 @@
 */
 package ie.dit;
 
-class SortedLL
+class SortedLL2
 {
-    Node head, z;
+    Node head;
     
 	//Node Structure
     private static class Node{
@@ -15,12 +15,8 @@ class SortedLL
     }	
 	
 	//Constructor
-    public SortedLL(){
+    public SortedLL2(){
         this.head = new Node();
-        this.z = new Node();
-        this.z.next = this.z;
-        this.z = this.z.next;
-		this.head.next = this.z;
     }
 
 	//Print Nodes Method
@@ -30,11 +26,11 @@ class SortedLL
 		t = this.head;
         
         System.out.print("\nHead -> ");
-        while(t != this.z) {
+        while(t.next != null) {
             System.out.print(t.data + " -> ");
             t = t.next;
         }
-        System.out.println("Z\n");
+        System.out.println("End\n");
     }	
 	
 	//Linked List Insert Node Method
@@ -45,7 +41,7 @@ class SortedLL
 		Node current = new Node();
 		current = this.head;
         
-        while(current.next != this.z && x > current.next.data)
+        while(current.next != null && x > current.next.data)
 		{
 			current = current.next;
 		}
@@ -59,7 +55,7 @@ class SortedLL
 	//Linked List Remove Node Method
     public void remove(int x) 
 	{
-		if(this.head.next == this.z)
+		if(this.head.next == null)
 		{
 			System.out.println("List is empty");
             return;
@@ -67,7 +63,7 @@ class SortedLL
 		
 		Node current = new Node();
 		current = this.head;
-		while (current.next.data != x && current.next != this.z)
+		while (current.next.data != x && current.next != null)
 		{
 			current = current.next;	
 		}
@@ -87,7 +83,7 @@ class SortedLL
 	//Linked List Main Method
     public static void main(String[] args)
     {
-        SortedLL list = new SortedLL();
+        SortedLL2 list = new SortedLL2();
         list.display();
         
         int i, x;
